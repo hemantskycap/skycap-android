@@ -1,14 +1,10 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
-        applicationId "skycap.android"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -28,6 +24,4 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlinVersion"
 
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibVersion"
-
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }
