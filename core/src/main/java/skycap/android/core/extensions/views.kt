@@ -1,4 +1,4 @@
-package skycap.android.core
+package skycap.android.core.extensions
 
 import android.view.View
 
