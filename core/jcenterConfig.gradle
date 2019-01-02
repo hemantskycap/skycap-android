@@ -5,7 +5,7 @@ ext {
 
     publishedGroupId = 'skycap.android'
     artifact = 'core'
-    libraryVersion = "1.0.0-alpha02"
+    libraryVersion = "1.0.0-alpha03"
     libraryName = 'Core'
     libraryDescription = 'Core functions'
 
