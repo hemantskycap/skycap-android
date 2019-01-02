@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jfrog.bintray'
-apply plugin: 'com.github.dcendents.android-maven'
 
 def _versionCode = 1
 def _versionName = "1.0.0-alpha01"
@@ -25,17 +24,6 @@ android {
 def props = new Properties()
 file("../local.properties").withInputStream { props.load(it) }
 
-publishing{
-    publications {
-        maven(MavenPublication)  {
-            groupId "skycap.android"
-            version = _versionName
-            artifactId "skycap.android.core"
-            artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
-        }
-    }
-}
-
 bintray {
     user = props.getProperty("bintray.user")
     key = props.getProperty("bintray.key")
@@ -43,6 +31,17 @@ bintray {
     publications = ['MavenPublication'] //When uploading Maven-based publication files
     publish = true //[Default: false] Whether version should be auto published after an upload
     override = false //[Default: false] Whether to override version artifacts already published
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId "skycap.android"
+                version = _versionName
+                artifactId "skycap.android.core"
+                artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
+            }
+        }
+    }
 
     //Package configuration. The plugin will use the repo and name properties to check if the package already exists.
     //In that case, there's no need to configure the other package properties (like userOrg, desc, etc).
