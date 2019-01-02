@@ -1,0 +1,96 @@
+ext {
+    _versionCode = 1
+    _versionName = "1.0.0-alpha01"
+
+    bintrayRepo = 'skycap-android'
+    bintrayName = 'skycap-android-core'
+    bintrayOrg = 'skycap'
+
+    publishedGroupId = 'skycap.android'
+    artifact = 'core'
+    libraryVersion = _versionName
+    libraryName = 'Core'
+    libraryDescription = 'Core functions'
+
+    siteUrl = 'https://github.com/hemantskycap/skycap-android'
+    gitUrl = 'https://github.com/hemantskycap/skycap-android.git'
+
+    developerId = 'hemantskycap'
+    developerName = 'Hemant Kaushik'
+    developerEmail = 'hemant@skycap.co.in'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+group = publishedGroupId
+version = libraryVersion
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            packaging 'aar'
+            groupId publishedGroupId
+            artifactId artifact
+
+            name libraryName
+            description libraryDescription
+            url siteUrl
+
+            licenses {
+                license {
+                    name licenseName
+                    url licenseUrl
+                }
+            }
+            developers {
+                developer {
+                    id developerId
+                    name developerName
+                    email developerEmail
+                }
+            }
+            scm {
+                connection gitUrl
+                developerConnection gitUrl
+                url siteUrl
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.key")
+
+    configurations = ['archives']
+    pkg {
+        userOrg = bintrayOrg
+        repo = bintrayRepo
+        name = bintrayName
+        desc = libraryDescription
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = allLicenses
+        dryRun = false
+        publish = true
+        override = false
+        publicDownloadNumbers = true
+        version {
+            desc = libraryDescription
+        }
+    }
+}

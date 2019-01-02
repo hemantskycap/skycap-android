@@ -1,110 +1,20 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jfrog.bintray'
-apply plugin: 'maven-publish'
-
-def _versionCode = 1
-def _versionName = "1.0.0-alpha01"
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode _versionCode
-        versionName _versionName
+        versionCode versionCode
+        versionName versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
-def props = new Properties()
-file("../local.properties").withInputStream { props.load(it) }
-
-bintray {
-    user = props.getProperty("bintray.user")
-    key = props.getProperty("bintray.key")
-
-    publications = ['MavenPublication'] //When uploading Maven-based publication files
-    publish = true //[Default: false] Whether version should be auto published after an upload
-    override = false //[Default: false] Whether to override version artifacts already published
-
-    publishing {
-        publications {
-            maven(MavenPublication) {
-                groupId "skycap.android"
-                version = _versionName
-                artifactId "skycap.android.core"
-                artifact("$buildDir/outputs/aar/${project.getName()}-release.aar")
-            }
-        }
-    }
-
-    //Package configuration. The plugin will use the repo and name properties to check if the package already exists.
-    //In that case, there's no need to configure the other package properties (like userOrg, desc, etc).
-    pkg {
-        repo = 'skycap-android'
-        name = 'skycap-android-core'
-        userOrg = 'skycap'
-        desc = 'All helper libraries created by Skycap. https://skycap.co.in/'
-        websiteUrl = 'https://github.com/hemantskycap/skycap-android'
-        issueTrackerUrl = 'https://github.com/hemantskycap/skycap-android/issues'
-        vcsUrl = 'https://github.com/hemantskycap/skycap-android.git'
-        licenses = ['Apache-2.0']
-        labels = ['android']
-        publicDownloadNumbers = true
-
-        //Optional Github details
-        githubRepo = 'hemantskycap/skycap-android'
-        githubReleaseNotesFile = 'README.md'
-
-        //Optional Debian details
-//        debian {
-//            distribution = 'squeeze'
-//            component = 'main'
-//            architecture = 'i386,noarch,amd64'
-//        }
-
-        //Optional version descriptor
-        version {
-            //Bintray logical version name
-            name = _versionName
-
-            // Optional - Version-specific description'
-            //desc =
-
-            //Optional - Date of the version release.
-            released = new Date()
-
-            vcsTag = _versionName
-            //attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
-
-            //Optional version-level attributes
-            //Optional configuration for GPG signing
-//            gpg {
-//                sign = true //Determines whether to GPG sign the files. The default is false
-//                passphrase = 'passphrase' //Optional. The passphrase for GPG signing'
-//            }
-
-            //Optional configuration for Maven Central sync of the version
-//            mavenCentralSync {
-//                //[Default: true] Determines whether to sync the version to Maven Central.
-//                sync = true
-//
-//                //OSS user token: mandatory
-//                user = 'userToken'
-//
-//                //OSS user password: mandatory
-//                password = 'paasword'
-//
-//                close = '1'
-//                //Optional property. By default the staging repository is closed and artifacts are released to Maven Central.
-//                // You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
-//            }
         }
     }
 }
@@ -119,3 +29,5 @@ dependencies {
 
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibVersion"
 }
+
+apply from: 'jcenterConfig.gradle'
