@@ -1,14 +1,11 @@
 ext {
-    _versionCode = 1
-    _versionName = "1.0.0-alpha01"
-
     bintrayRepo = 'skycap-android'
     bintrayName = 'skycap-android-core'
     bintrayOrg = 'skycap'
 
     publishedGroupId = 'skycap.android'
     artifact = 'core'
-    libraryVersion = _versionName
+    libraryVersion = "1.0.0-alpha02"
     libraryName = 'Core'
     libraryDescription = 'Core functions'
 
