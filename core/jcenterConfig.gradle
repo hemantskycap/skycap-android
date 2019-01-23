@@ -1,5 +1,5 @@
 def versionCode = 1
-def versionName = "1.0.0-alpha06"
+def versionName = "1.0.0-alpha07"
 
 ext {
     bintrayRepo = 'skycap-android'
