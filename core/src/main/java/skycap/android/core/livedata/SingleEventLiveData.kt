@@ -8,7 +8,7 @@ import android.util.Log
 
 import java.util.concurrent.atomic.AtomicBoolean
 
-class SingleLiveEvent<T> : MutableLiveData<T>() {
+class SingleEventLiveData<T> : MutableLiveData<T>() {
 
     private val mPending = AtomicBoolean(false)
 
@@ -42,6 +42,6 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
     }
 
     companion object {
-        private val TAG = "SingleLiveEvent"
+        private val TAG = "SingleEventLiveData"
     }
 }

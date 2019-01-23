@@ -1,4 +1,4 @@
-package skycap.android.core.extensions
+package skycap.android.core
 
 import android.content.Context
 import android.util.DisplayMetrics
@@ -24,12 +24,10 @@ fun Context.getScreenWidthInDp(): Float {
 
 fun Context.getPixels(dp: Float): Float {
     val metrics = resources.displayMetrics
-    val px = dp * (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
-    return px
+    return dp * (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
 }
 
-fun Context.getDP(px: Float): Float {
+fun Context.getDp(px: Float): Float {
     val metrics = resources.displayMetrics
-    val dp = px / (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
-    return dp
+    return px / (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
 }

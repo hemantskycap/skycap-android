@@ -1,4 +1,4 @@
-package skycap.android.core.extensions
+package skycap.android.core
 
 import android.content.Context
 import android.content.Intent

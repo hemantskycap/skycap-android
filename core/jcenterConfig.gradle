@@ -1,3 +1,6 @@
+def versionCode = 1
+def versionName = "1.0.0-alpha06"
+
 ext {
     bintrayRepo = 'skycap-android'
     bintrayName = 'skycap-android-core'
@@ -5,7 +8,6 @@ ext {
 
     publishedGroupId = 'skycap.android'
     artifact = 'core'
-    libraryVersion = "1.0.0-alpha05"
     libraryName = 'Core'
     libraryDescription = 'Core functions'
 
@@ -22,7 +24,7 @@ ext {
 }
 
 group = publishedGroupId
-version = libraryVersion
+version = versionName
 
 install {
     repositories.mavenInstaller {
