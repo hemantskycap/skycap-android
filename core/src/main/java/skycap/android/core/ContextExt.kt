@@ -1,3 +1,6 @@
+@file:JvmName("ContextExt")
+@file:Suppress("unused")
+
 package skycap.android.core
 
 import android.content.Context

@@ -1,3 +1,6 @@
+@file:JvmName("DisplayExt")
+@file:Suppress("unused")
+
 package skycap.android.core
 
 import android.content.Context

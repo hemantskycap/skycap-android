@@ -1,6 +1,8 @@
-package skycap.android.core.utils
+@file:Suppress("unused")
 
-object Urls {
+package skycap.android.core.helper
+
+object UrlHelper {
 
     fun getYouTubeVideoThumbnailUrl(videoId: String): String {
         return "http://img.youtube.com/vi/$videoId/0.jpg"

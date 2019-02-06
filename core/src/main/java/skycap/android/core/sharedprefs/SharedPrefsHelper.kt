@@ -1,4 +1,6 @@
-package skycap.android.core.prefs
+@file:Suppress("unused")
+
+package skycap.android.core.sharedprefs
 
 import android.content.SharedPreferences
 

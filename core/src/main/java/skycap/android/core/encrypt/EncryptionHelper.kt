@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package skycap.android.core.encrypt
 
 import android.util.Base64

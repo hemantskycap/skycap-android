@@ -1,3 +1,6 @@
+@file:JvmName("SpannableExt")
+@file:Suppress("unused")
+
 package skycap.android.core
 
 import android.text.Spannable

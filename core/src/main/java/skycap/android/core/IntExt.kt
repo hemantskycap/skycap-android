@@ -1,4 +1,5 @@
-@file:JvmName("IntExtensions")
+@file:JvmName("IntExt")
+@file:Suppress("unused")
 
 package skycap.android.core
 

@@ -1,4 +1,5 @@
-@file:JvmName("BooleanExtensions")
+@file:JvmName("BooleanExt")
+@file:Suppress("unused")
 
 package skycap.android.core
 

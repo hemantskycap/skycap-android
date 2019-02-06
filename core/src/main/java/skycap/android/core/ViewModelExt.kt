@@ -1,3 +1,6 @@
+@file:JvmName("ViewModelExt")
+@file:Suppress("unused")
+
 package skycap.android.core
 
 import android.arch.lifecycle.ViewModel
