@@ -17,4 +17,13 @@ sealed class Resource<out T> {
 
     val isError: Boolean get() = this is Resource.Error
 
+
+    companion object {
+
+        fun <T> loading() = Resource.Loading<T>()
+
+        fun <T> success(value: T) = Resource.Success(value)
+
+        fun <T> error(code: Int) = Resource.Error<T>(code)
+    }
 }

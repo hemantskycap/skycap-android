@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package skycap.android.core.helper
+package skycap.android.core.device
 
 import android.annotation.SuppressLint
 import android.content.Context

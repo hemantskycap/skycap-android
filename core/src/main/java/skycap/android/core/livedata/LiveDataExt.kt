@@ -1,7 +1,7 @@
 @file:JvmName("LiveDataExt")
 @file:Suppress("unused")
 
-package skycap.android.core
+package skycap.android.core.livedata
 
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.LiveData

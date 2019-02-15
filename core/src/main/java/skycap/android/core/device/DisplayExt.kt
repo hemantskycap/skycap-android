@@ -1,7 +1,7 @@
 @file:JvmName("DisplayExt")
 @file:Suppress("unused")
 
-package skycap.android.core
+package skycap.android.core.device
 
 import android.content.Context
 import android.util.DisplayMetrics

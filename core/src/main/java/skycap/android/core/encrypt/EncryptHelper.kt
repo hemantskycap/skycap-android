@@ -8,7 +8,7 @@ import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.SecretKeySpec
 
 
-class EncryptionHelper(secret: String, iv: String) {
+class EncryptHelper(secret: String, iv: String, private val flags: Int = Base64.NO_PADDING) {
 
     private val secretKey = SecretKeySpec(secret.toByteArray(Charsets.UTF_8), "AES")
     private val cipher = Cipher.getInstance("AES/CBC/NoPadding")
@@ -26,7 +26,7 @@ class EncryptionHelper(secret: String, iv: String) {
             bytes = cipher.doFinal(bytes)
 
             // encode bytes
-            bytes = Base64.encode(bytes, Base64.NO_PADDING)
+            bytes = Base64.encode(bytes, flags)
 
             return String(bytes, Charsets.UTF_8)
 
@@ -45,7 +45,7 @@ class EncryptionHelper(secret: String, iv: String) {
             var bytes: ByteArray = string.toByteArray(Charsets.UTF_8)
 
             // decode Base64 bytes
-            bytes = Base64.decode(bytes, Base64.NO_PADDING)
+            bytes = Base64.decode(bytes, flags)
 
             // decrypt Base64 bytes
             bytes = cipher.doFinal(bytes)

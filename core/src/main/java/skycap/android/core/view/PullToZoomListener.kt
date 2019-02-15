@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package skycap.android.core.widget
+package skycap.android.core.view
 
 import android.animation.Animator
 import android.animation.ValueAnimator

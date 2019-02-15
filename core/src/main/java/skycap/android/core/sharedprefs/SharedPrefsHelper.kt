@@ -30,16 +30,41 @@ class SharedPrefsHelper constructor(private val prefs: SharedPreferences) {
         return prefs.getInt(key, defaultValue)
     }
 
+    fun getInt(key: String, defaultValue: Int): Int? {
+        return if (prefs.contains(key)) prefs.getInt(key, defaultValue)
+        else null
+    }
+
     fun get(key: String, defaultValue: String): String {
         return prefs.getString(key, defaultValue) ?: defaultValue
+    }
+
+    fun getString(key: String): String? {
+        return prefs.getString(key, null)
     }
 
     fun get(key: String, defaultValue: Long): Long {
         return prefs.getLong(key, defaultValue)
     }
 
+    fun getLong(key: String): Long? {
+        return if (prefs.contains(key)) {
+            prefs.getLong(key, 0L)
+        } else {
+            null
+        }
+    }
+
     fun get(key: String, defaultValue: Boolean): Boolean {
         return prefs.getBoolean(key, defaultValue)
+    }
+
+    fun getBoolean(key: String): Boolean? {
+        return if (prefs.contains(key)) {
+            prefs.getBoolean(key, false)
+        } else {
+            null
+        }
     }
 
     fun getStringSet(key: String): Set<String>? {

@@ -3,7 +3,7 @@ package skycap.android.sample
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
-import skycap.android.core.setVisibleOrGone
+import skycap.android.core.view.setVisibleOrGone
 
 class MainActivity : AppCompatActivity() {
 

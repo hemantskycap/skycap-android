@@ -6,9 +6,18 @@ package skycap.android.core
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.provider.Settings
 
 
-fun Context.watchYoutubeVideo(videoId: String): Boolean {
+fun Context.intentToShowAppSettings() {
+    val intent = Intent()
+    intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+    val uri = Uri.fromParts("package", packageName, null)
+    intent.data = uri
+    startActivity(intent)
+}
+
+fun Context.intentToWatchYoutubeVideo(videoId: String): Boolean {
     val appIntent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:$videoId"))
     val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=$videoId"))
 
@@ -27,7 +36,7 @@ fun Context.watchYoutubeVideo(videoId: String): Boolean {
     }
 }
 
-fun Context.openUrl(url: String): Boolean {
+fun Context.intentToOpenUrl(url: String): Boolean {
     return try {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(url)
@@ -39,7 +48,7 @@ fun Context.openUrl(url: String): Boolean {
     }
 }
 
-fun Context.shareTextToWhatsApp(message: String): Boolean {
+fun Context.intentToShareTextOnWhatsApp(message: String): Boolean {
     return try {
         val sendIntent = Intent()
         sendIntent.action = Intent.ACTION_SEND
@@ -54,7 +63,7 @@ fun Context.shareTextToWhatsApp(message: String): Boolean {
     }
 }
 
-fun Context.shareText(text: String): Boolean {
+fun Context.intentToShareText(text: String): Boolean {
     return try {
         val sendIntent = Intent()
         sendIntent.action = Intent.ACTION_SEND

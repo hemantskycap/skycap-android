@@ -1,7 +1,7 @@
 @file:JvmName("ViewExt")
 @file:Suppress("unused")
 
-package skycap.android.core
+package skycap.android.core.view
 
 import android.view.View
 

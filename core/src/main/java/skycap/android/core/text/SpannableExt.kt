@@ -1,8 +1,9 @@
 @file:JvmName("SpannableExt")
 @file:Suppress("unused")
 
-package skycap.android.core
+package skycap.android.core.text
 
+import android.graphics.Typeface
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.TextUtils
@@ -29,11 +30,11 @@ private fun span(s: CharSequence, o: Any): SpannableString {
 operator fun SpannableString.plus(s: SpannableString) = SpannableString(TextUtils.concat(this, s))
 operator fun SpannableString.plus(s: String) = SpannableString(TextUtils.concat(this, s))
 
-fun bold(s: CharSequence) = span(s, StyleSpan(android.graphics.Typeface.BOLD))
-fun bold(s: SpannableString) = span(s, StyleSpan(android.graphics.Typeface.BOLD))
+fun bold(s: CharSequence) = span(s, StyleSpan(Typeface.BOLD))
+fun bold(s: SpannableString) = span(s, StyleSpan(Typeface.BOLD))
 
-fun italic(s: CharSequence) = span(s, StyleSpan(android.graphics.Typeface.ITALIC))
-fun italic(s: SpannableString) = span(s, StyleSpan(android.graphics.Typeface.ITALIC))
+fun italic(s: CharSequence) = span(s, StyleSpan(Typeface.ITALIC))
+fun italic(s: SpannableString) = span(s, StyleSpan(Typeface.ITALIC))
 
 fun underline(s: CharSequence) = span(s, UnderlineSpan())
 fun underline(s: SpannableString) = span(s, UnderlineSpan())

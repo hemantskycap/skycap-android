@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package skycap.android.core.widget
+package skycap.android.core.view
 
 import android.content.Context
 import android.support.v4.view.ViewPager
